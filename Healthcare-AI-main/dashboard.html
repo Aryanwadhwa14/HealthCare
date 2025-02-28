@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthAI Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Same Header as Index -->
+    <header class="main-header">
+        <nav class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3B82F6"/>
+                            <stop offset="100%" stop-color="#10B981"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="logo-pulse" 
+                          d="M15 55L30 70 45 50 60 75 75 55" 
+                          fill="none" 
+                          stroke="#ffffff" 
+                          stroke-width="5"
+                          stroke-linecap="rounded"/>
+                </svg>
+                <span class="logo-text">HealthAI</span>
+            </a>
+            <div class="nav-links">
+                <a href="ai-analytics.html" class="nav-link">Analytics</a>
+                <a href="diagnostics.html" class="nav-link">Diagnostics</a>
+                <a href="login.html" class="nav-link">Patient Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Medical Portal Access</h2>
+                <div class="auth-close">&times;</div>
+            </div>
+            
+            <form class="auth-form">
+                <div class="input-group">
+                    <input type="text" id="username" required>
+                    <label for="username">Medical ID</label>
+                    <div class="input-border"></div>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Access Code</label>
+                    <div class="input-border"></div>
+                    <button type="button" class="pw-toggle">👁️</button>
+                </div>
+                
+                <button type="submit" class="auth-submit">
+                    <span>Secure Login</span>
+                    <div class="submit-loader"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Hero -->
+    <section class="dashboard-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Medical Intelligence Platform</h1>
+            <div class="hero-stats">
+                <!-- Add stats cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container">
+        <!-- Condensed Sections -->
+        <div class="dashboard-grid compact">
+            <!-- Clinical Analysis Overview -->
+            <div class="analytics-card compact clinical">
+                <div class="scan-preview clinical"></div>
+                <div class="scan-line"></div>
+                <h3>Clinical Analysis</h3>
+                <div class="mini-stats">
+                    <div class="mini-stat">
+                        <div class="value">98.4%</div>
+                        <div class="label">Accuracy</div>
+                    </div>
+                    <div class="mini-stat">
+                        <div class="value">0.24s</div>
+                        <div class="label">Avg. Response</div>
+                    </div>
+                </div>
+                <canvas class="mini-chart" id="clinicalChart"></canvas>
+            </div>
+
+            <!-- Patient Demographics -->
+            <div class="analytics-card demographics">
+                <div class="scan-preview"></div>
+                <div class="content-grid">
+                    <!-- Population Stats -->
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <div class="stat-value">2.4M</div>
+                            <div class="stat-label">Total Patients</div>
+                        </div>
+                    </div>
+
+                    <!-- Gender Distribution -->
+                    <div class="stat-card">
+                        <div class="stat-icon">🚻</div>
+                        <div class="stat-content">
+                            <div class="stat-value">65% / 35%</div>
+                            <div class="stat-label">Male / Female</div>
+                        </div>
+                    </div>
+
+                    <!-- Regional Stats -->
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-content">
+                            <div class="stat-value">152</div>
+                            <div class="stat-label">Countries Served</div>
+                        </div>
+                    </div>
+
+                    <!-- Age Distribution -->
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-content">
+                            <div class="stat-value">34.5</div>
+                            <div class="stat-label">Average Age</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anomaly Detection -->
+            <div class="analytics-card compact anomaly">
+                <div class="scan-preview anomaly"></div>
+                <div class="scan-line"></div>
+                <h3>Anomaly Alerts</h3>
+                <div class="anomaly-list">
+                    <div class="anomaly-item">3 Cardiac Irregularities</div>
+                    <div class="anomaly-item">1 Neurological Pattern</div>
+                    <div class="anomaly-item">2 Tumor Markers</div>
+                </div>
+            </div>
+        </div>
+        <div class="tool-card image-analysis">
+            <div class="scan-preview">
+                <div class="scan-loader">
+                    <div class="scan-line"></div>
+                    <div class="scan-grid"></div>
+                </div>
+            </div>
+            
+            <div class="tool-content">
+                <h4>Advanced Medical Imaging AI</h4>
+                <p class="scan-description">High-precision analysis of DICOM images with 3D reconstruction</p>
+                
+                <button class="analysis-button">
+                    <span class="button-content">
+                        <i class="fas fa-microscope"></i>
+                        <span class="button-text">Initiate Deep Scan</span>
+                    </span>
+                    <div class="button-backdrop"></div>
+                    <div class="scan-progress"></div>
+                </button>
+                
+                <div class="scan-stats">
+                    <div class="stat">
+                        <div class="stat-value">94.7%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0.2mm</div>
+                        <div class="stat-label">Resolution</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+
+        <!-- Platform Explanation Section -->
+        <section class="platform-overview">
+            <div class="platform-header">
+                <h1>HealthAI Medical Intelligence Platform</h1>
+                <p class="platform-tagline">Revolutionizing Healthcare through AI-Powered Diagnostics</p>
+            </div>
+
+            <div class="platform-content">
+                <!-- Platform Workflow -->
+                <div class="platform-card">
+                    <h3>How It Works</h3>
+                    <div class="workflow-steps">
+                        <div class="step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <h4>Data Integration</h4>
+                                <p>Seamless integration with hospital EHR systems, medical imaging devices, and IoT health monitors. Supports DICOM, HL7, and FHIR standards.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">2    </div>
+                            <div class="step-content">
+                                <h4>AI Analysis</h4>
+                                <p>Multi-model neural networks process data through:
+                                    <ul>
+                                        <li>Computer Vision for medical imaging</li>
+                                        <li>NLP for clinical notes analysis</li>
+                                        <li>Predictive analytics for risk assessment</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chatbot System -->
+                <div class="platform-card">
+                    <h3>AI Assistant Ecosystem</h3>
+                    <div class="chatbot-system">
+                        <div class="chatbot-card general">
+                            <h4>General Health Assistant</h4>
+                            <div class="chatbot-features">
+                                <p>24/7 patient support for:
+                                    <ul>
+                                        <li>- Symptom checking and triage</li>
+                                        <li>- Medication management</li>
+                                        <li>- Appointment scheduling</li>
+                                        <li>- Health education</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="chatbot-card mental">
+                            <h4>Mental Health Companion</h4>
+                            <div class="chatbot-features">
+                                <p>Specialized support featuring:
+                                    <ul>
+                                        <li>- Mood tracking and analysis</li>
+                                        <li>- CBT-based interventions</li>
+                                        <li>- Crisis detection and escalation</li>
+                                        <li>- Personalized coping strategies</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <!-- Platform Explanation -->
+    <section class="platform-details">
+        <div class="platform-header">
+            <h2>Comprehensive HealthAI Platform</h2>
+            <p class="platform-subheader">Integrating Advanced AI for Holistic Healthcare Solutions</p>
+        </div>
+
+        <!-- Chatbot System Details -->
+        <div class="chatbot-system">
+            <!-- General Health Assistant -->
+            <div class="chatbot-card general">
+                <div class="chatbot-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="chatbot-content">
+                    <h3>General Health Assistant</h3>
+                    <div class="chatbot-description">
+                        <p>Our primary AI companion serves as a 24/7 virtual health consultant, utilizing 
+                        natural language processing to understand patient queries and medical history. 
+                        Key features include:</p>
+                        
+                        <ul class="chatbot-features">
+                            <li><i class="fas fa-check"></i> Symptom analysis with differential diagnosis</li>
+                            <li><i class="fas fa-check"></i> Medication interaction checker (integrates with 15,000+ drugs)</li>
+                            <li><i class="fas fa-check"></i> Preventive care recommendations based on medical guidelines</li>
+                            <li><i class="fas fa-check"></i> Multilingual support for 35 languages</li>
+                            <li><i class="fas fa-check"></i> Seamless appointment scheduling with local providers</li>
+                        </ul>
+                        
+                        <p>The assistant uses evidence-based medical protocols from sources like 
+                        UpToDate and Cochrane Library, providing responses validated by our 
+                        medical review team. It escalates complex cases to human doctors while 
+                        maintaining complete HIPAA compliance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mental Health Companion -->
+            <div class="chatbot-card mental">
+                <div class="chatbot-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="chatbot-content">
+                    <h3>Mental Health Companion</h3>
+                    <div class="chatbot-description">   
+                        <p>Specialized in psychological support, this AI therapist combines 
+                        cognitive behavioral therapy (CBT) techniques with emotional intelligence 
+                        algorithms to provide:</p>
+
+                        <ul class="chatbot-features">
+                            <li><i class="fas fa-check"></i> Mood tracking and pattern analysis</li>
+                            <li><i class="fas fa-check"></i> Crisis detection with emergency escalation</li>
+                            <li><i class="fas fa-check"></i> Personalized coping strategy development</li>
+                            <li><i class="fas fa-check"></i> Sleep hygiene and relaxation exercises</li>
+                            <li><i class="fas fa-check"></i> Medication adherence support</li>
+                        </ul>
+
+                        <p>Using PHQ-9 and GAD-7 assessment scales validated by the American 
+                        Psychological Association, the companion monitors depression and anxiety 
+                        levels. It employs natural language understanding to detect suicidal 
+                        ideation, automatically connecting users with certified counselors. 
+                        The system learns user preferences over time, adapting its therapeutic 
+                        approach while maintaining complete confidentiality.</p>
+
+                        <div class="clinical-validation">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Validated by 12 clinical trials with 85% patient satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Workflow -->
+        <div class="platform-workflow">
+            <h3>Integrated Healthcare Ecosystem</h3>
+            <div class="workflow-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Data Collection</h4>
+                        <p>Secure aggregation of patient data from EHRs, wearables, and IoT devices</p>
+                    </div>
+                </div>
+                <!-- Additional steps -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Add anime.js library if not already present -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        // Auth Management
+        const authOverlay = document.getElementById('authOverlay');
+        const dashboardContent = document.getElementById('dashboardContent');
+        const authForm = document.getElementById('authForm');
+        const signOutBtn = document.getElementById('signOutBtn');
+
+        // Check existing session
+        if(localStorage.getItem('medAuth')) {
+            authOverlay.style.display = 'none';
+            dashboardContent.style.display = 'block';
+        }
+
+        // Enhanced Auth Logic
+        const validateCredentials = (email, password) => {
+            // Add real validation logic here
+            const validUsers = {
+                'doctor@healthai.com': 'securePass123',
+                'nurse@healthai.com': 'nurseAccess456'
+            };
+            return validUsers[email] === password;
+        };
+
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if(validateCredentials(email, password)) {
+                localStorage.setItem('medAuth', 'true');
+                localStorage.setItem('medUser', email);
+                authOverlay.style.display = 'none';
+                dashboardContent.style.display = 'block';
+            } else {
+                alert('Authentication Failed\nInvalid Medical Credentials');
+            }
+        });
+
+        // Show current user
+        const userEmail = localStorage.getItem('medUser');
+        if(userEmail) {
+            document.querySelector('.signout-btn span').textContent = `Sign Out (${userEmail})`;
+        }
+
+        // Handle sign out
+        signOutBtn.addEventListener('click', () => {
+            localStorage.removeItem('medAuth');
+            localStorage.removeItem('medUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,255 @@
+/* Dynamic Background Animation */
+.dynamic-features {
+    padding: 12rem 2rem;
+    background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #1e3a8a 40%,
+        #0f172a 70%,
+        #1e3a8a 100%
+    );
+    background-size: 400% 400%;
+    animation: spectrumFlow 30s linear infinite;
+}
+
+@keyframes spectrumFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.precision-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.crystal-card {
+    background: rgba(0, 3, 15, 0.25);
+    padding: 5rem 4rem;
+    margin: 2rem 0;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.crystal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.chroma-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+        linear-gradient(
+            45deg,
+            transparent 40%,
+            rgba(0, 0, 0, 0.1) 50%,
+            transparent 60%
+        );
+    pointer-events: none;
+}
+
+.glow-heading {
+    font-size: 3.2rem;
+    letter-spacing: -0.02em;
+    color: #ffffff !important;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    display: inline-block;
+}
+
+.glow-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+.glow-heading:hover::after {
+    width: 80%;
+    background: #3B82F6;
+}
+
+.hologram-list {
+    display: grid;
+    gap: 1.5rem;
+    margin: 3rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.data-item {
+    font-size: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-left: 3px solid transparent !important;
+    transition: background-color 0.3s ease;
+}
+
+.data-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.item-glow {
+    width: 12px;
+    height: 12px;
+    filter: blur(4px);
+    background: radial-gradient(circle, #3B82F6 0%, transparent 70%);
+    animation: nodeGlow 2s infinite alternate;
+    color: #ffffff;
+}
+
+@keyframes nodeGlow {
+    from { opacity: 0.3; }
+    to { opacity: 0.7; }
+}
+
+/* Premium Button Exact Sizing */
+.nexus-button {
+    font-size: 1.4rem;
+    padding: 1.5rem 3.5rem;
+    border-radius: 1.5rem;
+    margin: 2rem auto;
+    width: fit-content;
+    min-width: 260px;
+    text-align: center;
+    transition: 
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.95) 0%,
+        rgba(16, 185, 129, 0.95) 100%
+    );
+    border: 1px solid rgba(255,255,255,0.15);
+    text-decoration: none;
+}
+
+/* Holographic Shine Effect */
+.nexus-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.2rem;
+    box-shadow: inset 0 0 12px rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nexus-button:hover::before {
+    opacity: 1;
+}
+
+/* Floating Particles Effect */
+.nexus-button::after {
+    content: none !important;
+}
+
+/* Enhanced Glow on Hover */
+.nexus-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 5px 25px rgba(59, 130, 246, 0.4),
+        0 3px 15px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 1) 0%,
+        rgba(16, 185, 129, 1) 100%
+    );
+}
+
+/* Text Emphasis */
+.button-text {
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    transition: letter-spacing 0.3s ease;
+}
+
+.nexus-button:hover .button-text {
+    letter-spacing: 0.03em;
+}
+
+.button-aura {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255,255,255,0.15) 50%,
+        transparent 100%
+    );
+    animation: auraFlow 4s linear infinite;
+}
+
+@keyframes auraFlow {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+.button-sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        circle at 20% 80%,
+        rgba(255,255,255,0.4) 2px,
+        transparent 0
+    );
+    background-size: 200% 200%;
+    animation: sparkleField 5s linear infinite;
+}
+
+@keyframes sparkleField {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+/* New Border Pulse Effect */
+.crystal-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    animation: borderPulse 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: rgba(59, 130, 246, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        border-color: rgba(59, 130, 246, 0.5);
+        transform: scale(1.02);
+    }
+}
+
+/* White Color Enforcement */
+.data-item,
+.nexus-button {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Text Enhancement */
+.nexus-button {
+    font-weight: 600;
+    text-transform: uppercase;
+}

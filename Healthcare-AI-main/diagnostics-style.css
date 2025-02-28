@@ -1,0 +1,1031 @@
+.main-header {
+    padding: 1rem 1rem;
+    background: rgba(18, 28, 51, 0.95);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 4px 30px rgba(30, 58, 138, 0.05);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 40px;
+}
+
+/* Updated Minimalist Logo Styles */
+/* Logo Container */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    position: relative;
+    z-index: 1000;
+}
+
+/* SVG Icon Container */
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    overflow: visible;
+}
+
+/* Shield Element */
+.logo-shield {
+    transform-origin: center;
+    animation: shieldFloat 3s ease-in-out infinite;
+}
+
+/* ECG Pulse Line */
+.logo-pulse {
+    transform-origin: left center;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: pulseFlow 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Text Element */
+.logo-text {
+    font-family: gill sans;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    transition: opacity 0.1s ease;
+}
+
+.glow-text {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    animation: text-glow 1.5s ease-in-out infinite alternate;
+    text-shadow: 
+        0 0 5px #3B82F6,
+        0 0 10px #3B82F6,
+        0 0 15px #3B82F6,
+        0 0 20px #10B981;
+}
+
+@keyframes text-glow {
+    from {
+        text-shadow: 
+            0 0 5px rgba(59,130,246,0.3),
+            0 0 10px rgba(59,130,246,0.3),
+            0 0 15px rgba(59,130,246,0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 10px #3B82F6,
+            0 0 20px #3B82F6,
+            0 0 30px #3B82F6,
+            0 0 40px #10B981;
+    }
+}
+
+.logo:hover .logo-shield {
+    animation: shieldFloat 1.2s ease-in-out infinite;
+}
+.logo:hover .logo-pulse {
+    animation: pulseFlow 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.logo:hover .logo-text {
+    color:hsla(187, 100%, 63%, 0.95)
+}
+@keyframes pulseDraw {
+    0% { 
+        stroke-dashoffset: 120; 
+        stroke-width: 4px;
+    }
+    50% { 
+        stroke-dashoffset: 0; 
+        stroke-width: 5px;
+    }
+    100% { 
+        stroke-dashoffset: -120; 
+        stroke-width: 4px;
+    }
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.7rem 1.3rem;
+    border-radius: 0.9rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid transparent;
+}
+
+
+
+.nav-link:hover {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.03);
+    border-color: rgba(37, 99, 235, 0.1);
+    transform: translateY(-1.5px);
+}
+
+.nav-link.active {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.08);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.05);
+}
+
+.nav-link svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 2px;
+}
+
+
+
+/* Base Styles */
+.diagnostics-container {
+    padding: 1.5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+    color: #0f172a;
+    font-size: 1.35rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #3B82F6;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+/* Diagnostic Cards */
+.diagnostic-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0.75rem 0;
+}
+
+.diagnostic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+    border-color: #3B82F6;
+}
+
+.upload-area {
+    border: 2px dashed #cbd5e1;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 0.75rem 0;
+}
+
+.upload-label {
+    cursor: pointer;
+    color: #3B82F6;
+    font-weight: 500;
+}
+
+/* Analysis Results */
+.analysis-results {
+    margin-top: 1rem;
+}
+
+.result-item {
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Medication Analysis */
+.medication-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin: 0.25rem 0;
+}
+
+.analysis-btn {
+    background: #3B82F6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/* Prescription Validation */
+.validation-item {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.valid {
+    background: #ecfdf5;
+    color: #10B981;
+}
+
+.warning {
+    background: #fef3c7;
+    color: #D97706;
+}
+
+/* Interactive Elements */
+.ai-icon {
+    font-size: 2rem;
+    margin-left: auto;
+}
+
+.loading .result-loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3B82F6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Animations */
+.dashboard-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-10px) rotateX(2deg) rotateY(-1deg);
+}
+
+.neuro-icon, .mind-icon {
+    transition: all 0.6s ease;
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.2));
+}
+
+.dashboard-card:hover .neuro-icon {
+    animation: neuroPulse 1.5s infinite;
+}
+
+@keyframes neuroPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Timeline Effects */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    background: #3B82F6;
+    border-radius: 50%;
+    animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Mood Chart Animation */
+.chart-bars .bar {
+    background: linear-gradient(to top, #3B82F6, #8B5CF6);
+    width: 40px;
+    margin: 0 1rem;
+    animation: barGrow 1s ease-out forwards;
+}
+
+@keyframes barGrow {
+    from { height: 0; }
+}
+
+/* Hover Effects */
+.medication-item:hover {
+    background: #f8fafc;
+    transform: translateX(5px);
+}
+
+.upload-label:hover {
+    background: #f8fafc;
+    border-color: #3B82F6;
+}
+
+/* Floating Effect */
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.ai-reports {
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+/* Gradient Overlays */
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, 
+        rgba(59, 130, 246, 0.05) 0%,
+        rgba(255,255,255,0) 50%);
+    pointer-events: none;
+}
+
+/* 3D Transform Effects */
+.validation-item:hover {
+    transform: translateX(5px);
+}
+
+/* Dynamic Shadows */
+.diagnostic-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.4s ease;
+}
+
+.diagnostic-card:hover {
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+}
+
+/* Vital Stats Animation */
+.stat-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid #3B82F6;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.stat-graph {
+    height: 60px;
+    background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+    mask: url(#wavePattern);
+    animation: waveMove 6s linear infinite;
+}
+
+/* AI Assistant Styles */
+.ai-assistant {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 1.5rem;
+    margin: 3rem 0;
+    padding: 2rem;
+}
+
+.assistant-avatar {
+    font-size: 4rem;
+    animation: aiPulse 2s ease-in-out infinite;
+}
+
+@keyframes aiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.chat-message {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    position: relative;
+    transform-origin: left;
+    animation: messagePop 0.4s ease-out;
+}
+
+@keyframes messagePop {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Advanced Wave Animation */
+@keyframes waveMove {
+    0% { mask-position: 0 0; }
+    100% { mask-position: 100% 0; }
+}
+
+/* Holographic Effect */
+.stat-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, 
+        transparent 25%,
+        rgba(255,255,255,0.2) 50%,
+        transparent 75%);
+    animation: hologram 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes hologram {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Dynamic Input Effects */
+.input-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus {
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.send-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #3B82F6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+}
+
+/* Remove all keyframe animations */
+/* Enhanced Hover Effects Only */
+.diagnostic-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    border: 1px solid #e2e8f0;
+}
+
+.diagnostic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+    border-color: #3B82F6;
+}
+
+.upload-label:hover {
+    background: #f8fafc;
+    border-color: #3B82F6;
+}
+
+.medication-item:hover {
+    background: #f8fafc;
+    transform: translateX(5px);
+}
+
+.analysis-btn:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+.stat-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid #3B82F6;
+}
+
+.chat-message.ai:hover {
+    background: #f8fafc;
+    border: 1px solid #3B82F6;
+}
+
+.input-container input:focus {
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.send-btn:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+}
+
+/* Simplified Validation States */
+.validation-item:hover {
+    transform: translateX(5px);
+}
+
+/* Professional Underline Effect */
+.section-title:hover::after {
+    width: 80px;
+    background: #2563eb;
+}
+
+/* Icon Hover Effects */
+.ai-icon:hover {
+    filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
+}
+
+.stat-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Table Row Highlight */
+.medication-list tr:hover {
+    background: #f8fafc;
+}
+
+/* File Upload Hover */
+.upload-area:hover {
+    border-color: #3B82F6;
+    background: rgba(59, 130, 246, 0.03);
+}
+
+/* Color Scheme Update */
+:root {
+    --primary-blue: #2563eb;
+    --secondary-blue: #3B82F6;
+    --accent-green: #10B981;
+    --background-light: #f8fafc;
+    --text-primary: #0f172a;
+}
+
+/* Interaction Visualization */
+.interaction-web {
+    position: relative;
+    height: 300px;
+    background: var(--background-light);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.web-node {
+    position: absolute;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.web-node:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.main-med {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--secondary-blue);
+    color: white;
+}
+
+.interact-1 {
+    left: 20%;
+    top: 30%;
+    border: 2px solid var(--accent-green);
+}
+
+.interact-2 {
+    left: 70%;
+    top: 60%;
+    border: 2px solid #ef4444;
+}
+
+/* Severity Indicators */
+.severity-indicator {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.severity-indicator.high {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+/* Clinical Guidance Box */
+.clinical-guidance {
+    background: var(--background-light);
+    border-left: 4px solid var(--secondary-blue);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.clinical-guidance h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Info Grid Layout */
+.interaction-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.info-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    margin: 0.25rem 0;
+}
+
+.info-label {
+    color: #64748b;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Typography Enhancements */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+/* Hover Effects */
+.clinical-guidance:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.info-item:hover {
+    border-color: var(--secondary-blue);
+    background: #f0f5ff;
+}
+
+/* Clean Base Styles */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --background: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #0f172a;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* Enhanced Card Design */
+.diagnostic-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.diagnostic-card:hover {
+    background: var(--card-bg);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Sophisticated Hover Effects */
+.analysis-btn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.analysis-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
+}
+
+.medication-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.medication-item:hover {
+    background: rgba(59, 130, 246, 0.05);
+    transform: translateX(4px);
+}
+
+/* Clean Table Design */
+.interaction-info {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.info-item {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.info-item:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.03);
+}
+
+/* Enhanced Typography */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 4rem;
+}
+
+/* File Upload Enhancement */
+.upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.03);
+}
+
+/* Professional Color Coding */
+.severity-indicator {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.high-severity {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+.moderate-severity {
+    background: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fcd34d;
+}
+
+/* Clean Navigation Hover */
+.nav-link {
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Enhanced Input Fields */
+.input-container input {
+    padding: 0.875rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.input-container input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Enhanced Medical UI Components */
+.health-insights {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 1.5rem 0;
+}
+
+.insight-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.insight-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.status-indicator {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.vital-chart {
+    display: grid;
+    gap: 1rem;
+}
+
+.metric-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 4px;
+    animation: barFill 1s ease-out forwards;
+}
+
+.plan-items {
+    display: grid;
+    gap: 1rem;
+}
+
+.plan-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: var(--background);
+    transition: all 0.2s ease;
+    margin: 0.25rem 0;
+}
+
+.plan-item:hover {
+    transform: translateX(8px);
+    background: var(--card-bg);
+}
+
+.plan-icon {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.btn-icon {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+}
+
+@keyframes barFill {
+    from { width: 0; }
+}
+
+/* Responsive Spacing */
+@media (max-width: 768px) {
+    .diagnostics-container {
+        padding: 1rem 0.5rem;
+    }
+    
+    .grid-container {
+        gap: 0.75rem;
+    }
+    
+    .diagnostic-card {
+        padding: 1rem;
+    }
+}
+

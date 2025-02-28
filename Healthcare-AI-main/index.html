@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for proper character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthAI - Medical Dashboard</title>
+    
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Bootstrap CSS for responsive design -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3B82F6"/>
+                            <stop offset="100%" stop-color="#10B981"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="logo-pulse" 
+                          d="M15 55L30 70 45 50 60 75 75 55" 
+                          fill="none" 
+                          stroke="#ffffff" 
+                          stroke-width="5"
+                          stroke-linecap="rounded"/>
+                </svg>
+                <span class="logo-text">HealthAI</span>
+            </a>
+            <nav class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="ai-analytics.html" class="nav-link">AI Analytics</a>
+                <a href="diagnostics.html" class="nav-link">Diagnostic</a>
+                <a href="login.html" class="nav-link">Sign in/Log in </a>
+                <a href="ai-chatbot.html" class="nav-link">AI Chatbot</a>
+                <a href="mental-health-bot.html" class="nav-link dev-button"> Mental Health bud </a>
+                <a href="developers.html" class="nav-link dev-button"> Meet Our Team </a>
+
+
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-main">Health</span>
+                <span class="title-accent">AI</span>
+            </h1>
+            <p class="hero-subtitle">Next-Gen AI Medical Intelligence Platform</p>
+            <div class="hero-description">
+                <p>Revolutionizing healthcare through real-time predictive analytics<br> 
+                and deep learning-powered patient monitoring systems</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Add this new Medical Professionals Section -->
+    <section class="medical-team py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Medical Professionals</h2>
+            <div class="row g-4">
+                <!-- Medical Professional Card 1 -->
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2" class="img-fluid rounded" alt="Doctor">
+                        <div class="member-info mt-3">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p class="text-muted">Chief Medical Officer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medical Professional Card 2 -->
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d" class="img-fluid rounded" alt="Doctor">
+                        <div class="member-info mt-3">
+                            <h4>Dr. Michael Chen</h4>
+                            <p class="text-muted">AI Research Lead</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medical Professional Card 3 -->
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f" class="img-fluid rounded" alt="Doctor">
+                        <div class="member-info mt-3">
+                            <h4>Dr. Emily Rodriguez</h4>
+                            <p class="text-muted">Head of Diagnostics</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medical Professional Card 4 -->
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d" class="img-fluid rounded" alt="Doctor">
+                        <div class="member-info mt-3">
+                            <h4>Dr. James Wilson</h4>
+                            <p class="text-muted">Patient Care Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this CSS to your existing styles -->
+    <style>
+        .medical-team {
+            background-color: #f8f9fa;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);   
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .member-info {
+            padding: 1rem;
+        }
+
+        .member-info h4 {
+            color: #2c7be5;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .member-info p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .team-member img {
+                height: 250px;
+            }
+            
+            .team-member {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .vital-signs { grid-column: span 2; }
+        .ecg-graph { grid-column: span 3; }
+
+        .ecg-wave path {
+            stroke: #3B82F6;
+            stroke-dasharray: 1000;
+            animation: draw 5s linear infinite;
+        }
+
+        /* Status Panel */
+        .status-panel {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        /* Footer Styles */
+        .medical-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 5rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5rem;
+        }
+
+        @keyframes draw {
+            from { stroke-dashoffset: 1000; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* ====================== */
+        /* Enhanced Logo Animations */
+        /* ====================== */
+        .logo-shield {
+            animation: shieldThrob 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        .logo-pulse {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: pulseDraw 1.8s ease-in-out infinite;
+        }
+
+        @keyframes shieldThrob {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.03); opacity: 1; }
+        }
+
+        @keyframes pulseDraw {
+            0% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -100; }
+        }
+
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(
+                135deg, 
+                #3B82F6 0%, 
+                #10B981 50%, 
+                #3B82F6 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradientFlow 4s linear infinite;
+        }
+
+        @keyframes gradientFlow {
+            to { background-position: 200% center; }
+        }
+
+        /* Logo Hover States */
+        .logo:hover .logo-shield {
+            animation: shieldThrob 1s ease-in-out infinite;
+        }
+
+        .logo:hover .logo-pulse {
+            animation: pulseDraw 0.8s linear infinite;
+        }
+    </style>
+
+    <!-- Diagnostic Tools Section -->
+    <section id="diagnostics" class="py-5">
+        <div class="container">
+            <h2>AI Diagnostic Tools</h2>
+            
+            <div class="row g-4">
+                <!-- Image Analysis -->
+                <div class="col-lg-6">
+                    <div class="diagnostic-tool">
+                        <h3 class="h4 mb-4">Medical Image Analysis</h3>
+                        <div class="upload-section">
+                            <label class="custom-upload-btn">
+                                <input type="file" id="imageUpload" accept="image/*">
+                                Upload Medical Scan
+                            </label>
+                            <p class="mt-3 text-muted small">Supports: JPEG, PNG, DICOM</p>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-4">Analyze Scan</button>
+                    </div>
+                </div>
+
+                <!-- Symptom Checker -->
+                <div class="col-lg-6">
+                    <div class="diagnostic-tool">
+                        <h3 class="h4 mb-4">Symptom Analysis</h3>
+                        <form id="symptomForm">
+                            <textarea 
+                                class="form-control mb-4" 
+                                rows="5" 
+                                placeholder="Describe symptoms..."
+                            ></textarea>
+                            <button type="submit" class="btn btn-primary w-100">Analyze Symptoms</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Premium features  -->
+        <link rel="stylesheet" href="style-diag.css">
+        <section class="dynamic-features">
+            <div class="precision-container">
+                <div class="crystal-card">
+                    <div class="chroma-overlay"></div>
+                    <div class="content-matrix">
+                        <h2 class="glow-heading">AI-Powered Health Revolution</h2>
+                        <ul class="hologram-list">
+                            <li class="data-item">
+                                <span class="item-glow"></span>
+                                Real-time Neural Diagnostics
+                            </li>
+                            <li class="data-item">
+                                <span class="item-glow"></span>
+                                Predictive Health Analytics
+                            </li>
+                            <li class="data-item">
+                                <span class="item-glow"></span>
+                                Personalized Treatment Plans
+                            </li>
+                        </ul>
+                        <a href="premium.html" class="nexus-button">
+                            <span class="button-aura"></span>
+                            Explore Premium Intelligence
+                            <span class="button-sparkles"></span>
+                        </a>
+                        <link rel="stylesheet" href="style-diag.css">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Treatment Recommendations Section -->
+    <section id="treatment" class="py-5 bg-light">
+        <div class="container">
+            <h2>Treatment Planning</h2>
+            <div class="row">
+                <!-- Treatment Analysis -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Treatment Recommendations</h3>
+                            <form id="treatmentForm">
+                                <input type="text" class="form-control mb-2" placeholder="Diagnosis">
+                                <input type="text" class="form-control mb-2" placeholder="Patient Age">
+                                <a href="treatment-planning.html" class="treatment-button">
+                                    Create Custom Treatment Plan
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Drug Interaction Checker -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Drug Interaction Checker</h3>
+                            <div class="drug-checker">
+                                <input type="text" class="form-control mb-2" placeholder="Enter medications...">
+                                <button class="btn btn-info">Check Interactions</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Add Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login to Dashboard</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this script section at the end of your body tag -->
+    <script>
+        // Show login modal
+        function showLoginModal() {
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        }
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simple demo credentials - In real application, use proper authentication
+            if (username === "admin" && password === "admin123") {
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Invalid credentials! Try username: admin, password: admin123');
+            }
+        }
+
+        // Protect dashboard access
+        function checkAuth() {
+            // In a real application, you would check for a valid session/token
+            // This is just a simple example
+            if (window.location.pathname.includes('dashboard.html')) {
+                // Add your authentication logic here
+                // For demo purposes, you might want to remove this or modify it
+                if (!sessionStorage.getItem('isLoggedIn')) {
+                    window.location.href = 'index.html';
+                }
+            }
+        }
+
+        // Set auth status on successful login
+        function setAuthStatus() {
+            sessionStorage.setItem('isLoggedIn', 'true');
+        }
+
+        // Add this to your existing DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            
+            // Handle login form submission
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleLogin(e);
+                    setAuthStatus();
+                });
+            }
+        });
+    </script>
+
+    <!-- AI Analytics Section -->
+    <section class="analytics-section card">
+        <h2 class="section-title">AI Analytics: Transforming Healthcare Through Data</h2>
+        
+        <div class="analytics-content">
+            <p class="analytics-description">
+               <h1> <strong>AI Analytics: Transforming Healthcare Through Data</strong></h1>
+
+            <div class="data-sources">
+                <div class="source-item">
+                    <div class="source-icon">🩺</div>
+                    <h4>Clinical Data Analysis</h4>
+                    <ul>
+                        <li>Real-time vital sign streams</li>
+                        <li>Medication response patterns</li>
+                        <li>Symptom progression tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="source-item">
+                    <div class="source-icon">🧬</div>
+                    <h4>Predictive Modeling</h4>
+                    <ul>
+                        <li>Sepsis risk scoring</li>
+                        <li>Readmission probability</li>
+                        <li>Treatment outcome projections</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="analytics-process">
+                <h3>How It Works</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>Data Ingestion</h4>
+                        <p>Secure integration with EHRs, IoT devices, and lab systems</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>Pattern Detection</h4>
+                        <p>Deep learning models identify subtle correlations in 1500+ health parameters</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>Actionable Output</h4>
+                        <p>Prioritized alerts, predictive timelines, and treatment recommendations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="use-cases">
+                <h3>Real-World Applications</h3>
+                <div class="case-grid">
+                    <div class="case-item">
+                        <h4>ICU Optimization</h4>
+                        <p>Predict bed demand 12 hours in advance with 92% accuracy</p>
+                    </div>
+                    <div class="case-item">
+                        <h4>Medication Safety</h4>
+                        <p>Flag adverse drug interactions 45 minutes faster than traditional methods</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-note">
+                <h3>Your Data's Protected</h3>
+                <p>All analytics performed with <strong>HIPAA-compliant encryption</strong> and strict access controls. We never store raw patient data.</p>
+            </div>
+
+            <div class="analytics-cta">
+                <a href="ai-analytics.html" class="analytics-button">
+                    <span class="button-text">Explore Full Analytics Suite</span>
+                    <div class="button-arrow">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-head"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+       <!-- Footer Section -->
+       <footer class="team-footer">
+        <div class="footer-glows"></div>
+        
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="team-name">
+                    <span class="team-text">Developed by</span>
+                    <span class="maverick-text">TEAM MAVERICK</span>
+                </div>
+                <a href="https://github.com/Aryanwadhwa14" class="github-link" target="_blank">
+                    <svg class="github-icon" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+                    </svg>
+                   GITHUB
+                </a>
+            </div> 
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+

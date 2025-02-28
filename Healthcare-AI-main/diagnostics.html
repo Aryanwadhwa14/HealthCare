@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthAI - Advanced Diagnostics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="diagnostics-style.css">
+</head>
+<body>
+    <!-- Header (Same Structure) -->
+    <header class="main-header">
+        <nav class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <span class="logo-text">HealthAI</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="premium.html" class="nav-link">Premium</a>
+                    <a href="ai-chatbot.html" class="nav-link active">AI Medbud</a>
+                    <a href="mental-health-bot.html" class="nav-link">Personal Bud</a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="diagnostics-container">
+        <!-- Diagnostic Tests Section -->
+        <section class="diagnostic-tests" id="diagnostics">
+            <h2 class="section-title">AI-Powered Diagnostic Analysis</h2>
+            
+            <div class="grid-container">
+                <div class="diagnostic-card">
+                    <div class="card-header">
+                        <h3>Upload Test Reports</h3>
+                        <div class="ai-icon">🩺</div>
+                    </div>
+                    <div class="upload-area">
+                        <input type="file" id="reportUpload" hidden accept=".pdf,.jpg,.png">
+                        <label for="reportUpload" class="upload-label">
+                            Drag & Drop or Click to Upload
+                            <span class="formats">(PDF, JPG, PNG)</span>
+                        </label>
+                        <div class="uploaded-files"></div>
+                    </div>
+                </div>
+
+                <div class="diagnostic-card">
+                    <div class="card-header">
+                        <h3>Real-Time Analysis</h3>
+                        <div class="ai-icon">⚡</div>
+                    </div>
+                    <div class="analysis-results">
+                        <div class="result-item loading">
+                            <div class="result-loader"></div>
+                            Analyzing Blood Work...
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Hemoglobin:</span>
+                            <span class="result-value">14.2 g/dL</span>
+                        </div>
+                        <!-- More results -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medication Analysis Section -->
+        <section class="medication-analysis">
+            <h2 class="section-title">Smart Medication Review</h2>
+            
+            <div class="grid-container">
+                <div class="medication-card">
+                    <div class="card-header">
+                        <h3>Current Medications</h3>
+                        <div class="ai-icon">💊</div>
+                    </div>
+                    <div class="medication-list">
+                        <div class="medication-item">
+                            <span>Metformin 500mg</span>
+                            <button class="analysis-btn">Interact Check</button>
+                        </div>
+                        <!-- More medications -->
+                    </div>
+                </div>
+                        
+                        <div class="interaction-details">
+                            <div class="severity-indicator high">High Risk</div>
+                            <h3>Metformin ↔ Warfarin</h3>
+                            <div class="interaction-info">
+                                <div class="info-item">
+                                    <span class="info-label">Effect:</span>
+                                    <span class="info-value">Increased bleeding risk</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Mechanism:</span>
+                                    <span class="info-value">Altered platelet function</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Recommendation:</span>
+                                    <span class="info-value">Monitor INR weekly</span>
+                                </div>
+                            </div>
+                            
+                            <div class="clinical-guidance">
+                                <h4>Clinical Guidance</h4>
+                                <p>Concomitant use requires close monitoring of bleeding parameters and INR levels. Consider dose adjustment of warfarin under physician supervision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add this in the medication analysis section -->
+                <div class="health-insights">
+                    <div class="insight-card vital-trends">
+                        <div class="card-header">
+                            <h4>Vital Trends</h4>
+                            <div class="card-actions">
+                                <button class="btn-icon">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vital-chart">
+                            <div class="chart-metric">
+                                <span class="metric-label">BP Trend</span>
+                                <div class="metric-bar" style="width: 75%"></div>
+                            </div>
+                            <div class="chart-metric">
+                                <span class="metric-label">Glucose Level</span>
+                                <div class="metric-bar" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insight-card treatment-plan">
+                        <div class="card-header">
+                            <h4>Active Care Plan</h4>
+                            <span class="status-indicator active">Active</span>
+                        </div>
+                        <ul class="plan-items">
+                            <li class="plan-item">
+                                <div class="plan-icon">💊</div>
+                                <div class="plan-detail">
+                                    <span>Metformin 500mg</span>
+                                    <small>Twice daily with meals</small>
+                                </div>
+                            </li>
+                            <li class="plan-item">
+                                <div class="plan-icon">🏃</div>
+                                <div class="plan-detail">
+                                    <span>Daily Exercise</span>
+                                    <small>30 min moderate activity</small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prescription Review Section -->
+        <section class="prescription-review">
+            <h2 class="section-title">Prescription Validation</h2>
+            
+            <div class="grid-container">
+                <div class="prescription-card">
+                    <div class="card-header">
+                        <h3>Upload Prescription</h3>
+                    <div class="prescription-upload">
+                        <input type="file" id="prescriptionUpload" hidden accept=".pdf,.jpg,.png">
+                        <label for="prescriptionUpload" class="upload-label">
+                            Upload Medical Prescription
+                        </label>
+                    </div>
+                </div>
+
+                <div class="validation-results">
+                    <h3>AI Validation Report</h3>
+                    <div class="validation-details">
+                        <div class="validation-item valid">
+                            ✅ Dosage Verified
+                        </div>
+                        <div class="validation-item warning">
+                            ⚠️ Potential Interaction Detected
+                        </div>
+                        <!-- More validations -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add these new sections below prescription review -->
+        <section class="health-dashboard">
+            <!-- AI Medical Reports -->
+            <div class="dashboard-card ai-reports">
+                <div class="report-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Blood Work Analysis</h4>
+                            <div class="timeline-graph"></div>
+                        </div>
+                    </div>
+                    <!-- More timeline items -->
+                </div>
+            </div>
+
+            <!-- Mental Health Sessions -->
+            <div class="dashboard-card mental-health">
+                <div class="card-header">
+                    <h3>Mental Health Progress</h3>
+                    <div class="mind-icon">🧘</div>
+                </div>
+                <div class="mood-chart">
+                    <div class="chart-axis"></div>
+                    <div class="chart-bars">
+                        <div class="bar" style="height: 30%"></div>
+                        <!-- More bars -->
+                    </div>
+                </div>
+                <div class="session-summary">
+                    <div class="summary-item stress">Stress Level: Moderate</div>
+                    <div class="summary-item anxiety">Anxiety Score: 42/100</div>
+                </div>
+            </div>
+
+            <!-- Add these elements in the health dashboard section -->
+            <div class="vital-stats">
+                <div class="stat-card heart-rate">
+                    <div class="stat-value">72 BPM</div>
+                    <div class="stat-label">Heart Rate</div>
+                    <div class="stat-graph"></div>
+                </div>
+                
+                <div class="stat-card oxygen">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Blood Oxygen</div>
+                    <div class="stat-graph"></div>
+                </div>
+            </div>
+
+            <!-- Add AI Assistant Section -->
+            <section class="ai-assistant">
+                <div class="assistant-container">
+                    <div class="assistant-avatar">🤖</div>
+                    <div class="assistant-chat">
+                        <div class="chat-message ai">How can I assist with your health today?</div>
+                        <div class="input-container">
+                            <input type="text" placeholder="Ask HealthAI...">
+                            <button class="send-btn">➤</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="diagnostics.js"></script>
+</body>
+</html> 

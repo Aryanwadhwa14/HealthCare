@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Analytics - Transforming Healthcare Data</title>
+    <style>
+        /* Self-contained styles */
+        :root {
+            --medical-blue: #3B82F6;
+            --medical-dark: #0f172a;
+            --medical-light: #f8fafc;
+            --accent-green: #10B981;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--medical-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .analytics-nav {
+            background: var(--medical-dark);
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 4;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            gap: 1.5rem;
+        }
+
+        /* Navbar glow effect */
+        .analytics-nav::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(180deg, 
+                rgba(59, 130, 246, 0.2) 0%,
+                transparent 100%);
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        /* Back button animation */
+        .back-button {
+            color: white;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255,255,255,0.1),
+                transparent);
+            transition: left 0.6s;
+        }
+
+        .back-button:hover::before {
+            left: 100%;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Title animation */
+        .analytics-nav h1 {
+            position: relative;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .analytics-nav h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--medical-blue);
+            transition: all 0.3s ease;
+        }
+
+        .analytics-nav h1:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Add all analytics page styles here */
+        .analytics-main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Animated Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--medical-dark) 0%, #1e293b 100%);
+            color: white;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--medical-blue) 0%, transparent 70%);
+            animation: pulse 8s infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        /* Interactive Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--medical-blue);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Data Visualization Section */
+        .viz-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+            align-items: center;
+        }
+
+        .viz-image {
+            width: 100%;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .viz-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .process-step {
+            width: 30%;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Security Badge */
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #FEF3C7;
+            border-radius: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .security-badge:hover {
+            transform: rotate(-2deg);
+            background: #FDE68A;
+        }
+
+        /* Interactive Accordion */
+        .accordion {
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #F8FAFC;
+        }
+
+        /* Updated CSS */
+        .feature-content {
+            padding: 1rem 0;
+        }
+
+        .feature-content ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .feature-content li {
+            position: relative;
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .feature-content li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--medical-blue);
+        }
+
+        .viz-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .viz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+        }
+
+        .integration-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid #e2e8f0;
+        }
+
+        .security-card {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 1px solid #fecaca;
+        }
+
+        /* Hover animations */
+        .viz-card, .integration-card, .security-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .viz-card:hover::after,
+        .feature-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Hero image adjustments */
+        .hero-image-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 2rem auto;
+            perspective: 1000px;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, 
+                rgba(59, 130, 246, 0.4) 0%,
+                rgba(59, 130, 246, 0.2) 50%,
+                transparent 70%);
+            animation: rotateGlow 8s linear infinite;
+            border-radius: 20px;
+            filter: blur(30px);
+            opacity: 0.7;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Hover effects */
+        .hero-image-wrapper:hover .hero-image {
+            transform: scale(1.1) rotateZ(3deg);
+        }
+
+        .hero-image-wrapper:hover .image-glow {
+            animation: rotateGlow 4s linear infinite;
+            opacity: 0.9;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-image-frame {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image-wrapper:hover .hero-image-frame {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Add subtle tilt animation */
+        @keyframes subtleTilt {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .hero-image {
+            animation: subtleTilt 8s ease-in-out infinite;
+        }
+
+        .hero-image-wrapper:hover .hero-image {
+            animation: subtleTilt 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="analytics-nav">
+        <div class="nav-container">
+            <a href="index.html" class="back-button">← Back to Home Page </a>
+            <h1 style="color: white;">AI Analytics Dashboard</h1>
+            <a href="developers.html" class="dev-button">
+                Meet Our Team
+                <span class="button-glow"></span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="analytics-main">
+        <section class="hero-section">
+            <h1>Transforming Healthcare Data into Actionable Insights</h1>
+            <p>Our AI Analytics platform harnesses advanced machine learning to convert complex data into clear insights</p>
+            <div class="hero-image-wrapper">
+                <div class="hero-image-frame">
+                    <img src="Designer.jpeg" alt="AI Analytics Interface" class="hero-image">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-grid">
+            <div class="feature-card">
+                <h2> Predictive Analytics</h2>
+                <div class="feature-content">
+                    <p>Our system analyzes historical and real-time data using neural networks to:</p>
+                    <ul>
+                        <li>Forecast patient deterioration 12-24 hours in advance</li>
+                        <li>Calculate readmission probabilities with 94% accuracy</li>
+                        <li>Predict medication response patterns</li>
+                        <li>Identify emerging population health trends</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <h2> Personalized Insights</h2>
+                <div class="feature-content">
+                    <p>Machine learning models create dynamic patient profiles that:</p>
+                    <ul>
+                        <li>Analyze 150+ health parameters per patient</li>
+                        <li>Suggest customized treatment pathways</li>
+                        <li>Flag potential drug interactions in real-time</li>
+                        <li>Adapt recommendations based on treatment outcomes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="viz-container">
+            <div class="viz-card">
+                <h2> Real-Time Monitoring</h2>
+                <div class="viz-content">
+                    <p>Continuous tracking system features:</p>
+                    <ul>
+                        <li>ICU patient surveillance dashboard</li>
+                        <li>Automated anomaly detection</li>
+                        <li>Smart alert prioritization</li>
+                        <li>Multi-device integration (IoT/wearables)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="viz-card">
+                <h2>Data Visualization</h2>
+                <div class="viz-content">
+                    <p>Advanced analytical tools include:</p>
+                    <ul>
+                        <li>Interactive 3D organ modeling</li>
+                        <li>Epidemiological heat maps</li>
+                        <li>Treatment outcome timelines</li>
+                        <li>Predictive trend forecasting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="feature-card integration-card">
+            <h2> System Integration</h2>
+            <div class="feature-content">
+                <p>Seamless compatibility with:</p>
+                <ul>
+                    <li>EPIC/Cerner EHR systems</li>
+                    <li>HL7/FHIR data standards</li>
+                    <li>IoT medical devices</li>
+                    <li>Legacy hospital databases</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="feature-card security-card">
+            <h3>Compliance & Security</h3>
+            <div class="feature-content">
+                <ul>
+                    <li>HIPAA-compliant data handling</li>
+                    <li>End-to-end AES-256 encryption</li>
+                    <li>Role-based access controls</li>
+                    <li>Real-time audit logging</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Accordion functionality
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+            header.querySelector('.arrow').style.transform = content.style.maxHeight 
+                ? 'rotate(180deg)' 
+                : 'rotate(0deg)';
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .process-step').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Image hover effects
+        document.querySelectorAll('.viz-image').forEach(img => {
+            img.addEventListener('mousemove', (e) => {
+                const rect = img.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width * 100;
+                const y = (e.clientY - rect.top) / rect.height * 100;
+                img.style.transform = `perspective(1000px) rotateX(${(y - 50) * 0.5}deg) rotateY(${(x - 50) * 0.5}deg) scale(1.02)`;
+            });
+
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html> 

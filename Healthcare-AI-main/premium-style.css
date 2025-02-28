@@ -1,0 +1,662 @@
+.main-header {
+    padding: 1rem 1rem;
+    background: rgba(18, 28, 51, 0.95);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 4px 30px rgba(30, 58, 138, 0.05);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 40px;
+}
+
+/* Updated Minimalist Logo Styles */
+/* Logo Container */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    position: relative;
+    z-index: 1000;
+}
+
+/* SVG Icon Container */
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    overflow: visible;
+}
+
+/* Shield Element */
+.logo-shield {
+    transform-origin: center;
+    animation: shieldFloat 3s ease-in-out infinite;
+}
+
+/* ECG Pulse Line */
+.logo-pulse {
+    transform-origin: left center;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: pulseFlow 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Text Element */
+.logo-text {
+    font-family: gill sans;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    transition: opacity 0.1s ease;
+}
+
+.glow-text {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    animation: text-glow 1.5s ease-in-out infinite alternate;
+    text-shadow: 
+        0 0 5px #3B82F6,
+        0 0 10px #3B82F6,
+        0 0 15px #3B82F6,
+        0 0 20px #10B981;
+}
+
+@keyframes text-glow {
+    from {
+        text-shadow: 
+            0 0 5px rgba(59,130,246,0.3),
+            0 0 10px rgba(59,130,246,0.3),
+            0 0 15px rgba(59,130,246,0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 10px #3B82F6,
+            0 0 20px #3B82F6,
+            0 0 30px #3B82F6,
+            0 0 40px #10B981;
+    }
+}
+
+.logo:hover .logo-shield {
+    animation: shieldFloat 1.2s ease-in-out infinite;
+}
+.logo:hover .logo-pulse {
+    animation: pulseFlow 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.logo:hover .logo-text {
+    color:hsla(187, 100%, 63%, 0.95)
+}
+@keyframes pulseDraw {
+    0% { 
+        stroke-dashoffset: 120; 
+        stroke-width: 4px;
+    }
+    50% { 
+        stroke-dashoffset: 0; 
+        stroke-width: 5px;
+    }
+    100% { 
+        stroke-dashoffset: -120; 
+        stroke-width: 4px;
+    }
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.7rem 1.3rem;
+    border-radius: 0.9rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid transparent;
+}
+
+
+
+.nav-link:hover {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.03);
+    border-color: rgba(37, 99, 235, 0.1);
+    transform: translateY(-1.5px);
+}
+
+.nav-link.active {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.08);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.05);
+}
+
+.nav-link svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 2px;
+}
+
+
+
+/* Base Styles */
+.premium-container {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin: 2rem 0;
+    color: #0f172a;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #3B82F6;
+    border-radius: 2px;
+    
+}
+
+/* Subscription Tiers */
+.tiers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tier-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Franklin Gothic Medium';
+    
+}
+
+.tier-card:hover {
+    transform: translateY(-10px) rotateZ(1deg);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+}
+
+.tier-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent 25%,
+        rgba(59, 130, 246, 0.05) 50%,
+        transparent 75%);
+    transition: all 0.8s ease;
+}
+
+.tier-card:hover::after {
+    left: 100%;
+}
+
+.tier-card h3 {
+    color: #3B82F6;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #64748b;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+}
+
+.features li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.features li::before {
+    content: "✓";
+    color: #10B981;
+    margin-right: 0.5rem;
+}
+
+/* Pricing Grid */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    perspective: 1000px;
+}
+
+.price-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    font-family: gill sans ;
+}
+
+.price-card:hover {
+    border-color: #3B82F6;
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-8px) scale(1.02);
+}
+
+.price-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 2px solid #3B82F6;
+    border-radius: 0.5rem;
+    opacity: 0;
+    animation: priceGlow 2s infinite;
+}
+
+@keyframes priceGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.3; }
+}
+
+.price-card:hover::before {
+    animation: none;
+    opacity: 0.2;
+}
+
+.rate {
+    font-size: 1.5rem;
+    color: #3B82F6;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.price-card:hover .rate {
+    color: #3B82F6;
+    transform: scale(1.1);
+}
+
+/* Insurance Plans */
+.insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    font-family: Poppins;
+}
+
+.insurance-card {
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.insurance-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1);
+}
+
+.insurance-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 25%,
+        rgba(16, 185, 129, 0.1) 50%,
+        transparent 75%);
+    transform: rotate(45deg);
+    animation: insuranceShine 3s infinite linear;
+    opacity: 0;
+}
+
+.insurance-card:hover::after {
+    opacity: 0.3;
+}
+
+@keyframes insuranceShine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.basic-insurance {
+    border-color: #3B82F6;
+}
+
+.premium-insurance {
+    border-color: #10B981;
+}
+
+.coverage {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    color: #0f172a;
+    transition: all 0.3s ease;
+}
+
+.insurance-card:hover .coverage {
+    color: #10B981;
+    transform: scale(1.05);
+}
+
+/* New Service Styling */
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.price-card:hover .service-icon {
+    transform: scale(1.2) rotate(15deg);
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.2));
+}
+
+/* Premium Live Background Animation */
+.tier-card.premium {
+    background: white;
+    color: #0f172a;
+    font-family: gill sans ;
+    font-weight: 600;
+}
+
+.tier-card.premium::before {
+    background: linear-gradient(45deg, 
+        rgba(59, 130, 246, 0.1) 0%,
+        rgba(139, 92, 246, 0.1) 50%,
+        rgba(59, 130, 246, 0.1) 100%);
+}
+
+.tier-card.premium .price,
+.tier-card.premium h3 {
+    color: #3B82F6;
+}
+
+.tier-card.premium .features li::before {
+    color: #3B82F6;
+}
+
+/* Enhanced Hover Effects */
+
+.insurance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+}
+
+.service-icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Feature List Hover */
+.features li {
+    position: relative;
+    padding-left: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.features li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #3B82F6;
+    transition: all 0.3s ease;
+}
+
+.features li:hover {
+    transform: translateX(8px);
+}
+
+.features li:hover::before {
+    color: #10B981;
+    transform: scale(1.5);
+}
+
+/* Insurance Card Hover */
+.insurance-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.insurance-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 25%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 75%);
+    transform: rotate(45deg);
+    animation: insuranceShine 3s infinite linear;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.insurance-card:hover::after {
+    opacity: 0.3;
+}
+
+@keyframes insuranceShine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Button Hover Effect */
+.auth-btn {
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.auth-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent 25%,
+        rgba(255,255,255,0.2) 50%,
+        transparent 75%);
+    transition: all 0.8s ease;
+}
+
+.auth-btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tiers-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+}
+
+/* Enhanced Premium Card Effects */
+.tier-card.premium {
+    position: relative;
+    overflow: visible;
+    border: none;
+    transform-style: preserve-3d;
+}
+
+.tier-card.premium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 1rem;
+    pointer-events: none;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.tier-card.premium {
+    animation: float 6s ease-in-out infinite;
+}
+
+.tier-card.premium::before {
+    animation: bgFlow 6s linear infinite;
+}
+
+/* Particle Effect */
+.premium-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: particleFloat 4s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    25% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+    50% { transform: translateY(-40px) translateX(-10px); }
+    75% { transform: translateY(-60px) translateX(10px); opacity: 0.5; }
+    100% { transform: translateY(-80px) translateX(0); opacity: 0; }
+}
+
+/* Section Backgrounds */
+.subscription-tiers {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.pricing-details {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.insurance-plans {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+/* Section Headers */
+.section-title {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #3B82F6;
+    border-radius: 2px;
+}
+
+/* Card Backgrounds */
+.tier-card {
+    background: white;
+}
+
+.price-card {
+    background: rgba(203, 255, 252, 0.9);
+}
+
+.insurance-card {
+    background: white;
+}
+
+/* Gradient Accents */
+.subscription-tiers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+}
+
+.insurance-plans::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #10B981 0%, #3B82F6 100%);
+} 
